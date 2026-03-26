@@ -1,0 +1,16 @@
+[phases.setup]
+nixPkgs = ["...", "python3", "nodejs_20"]
+nixLibs = ["..."]
+
+[phases.install]
+cmds = ["npm ci || npm install"]
+
+[phases.build]
+cmds = ["npm run build", "npx drizzle-kit push"]
+
+[start]
+cmd = "npm start"
+
+[variables]
+NODE_ENV = "production"
+NIXPACKS_NODE_VERSION = "20"
